@@ -1,0 +1,25 @@
+<%- include("partials/header", { title: "Home" }) %>
+
+<h1 class="mb-4 text-center txt"> Recent Posts</h1>
+
+<% if (posts.length === 0) { %>
+  <div class="alert alert-warning text-center txt">No posts yet. <a href="/compose" class="alert-link txt">Compose one!</a></div>
+<% } %>
+
+<div class="row">
+  <% posts.forEach(function(post) { %>
+    <!-- <pre><%= JSON.stringify(post) %></pre> -->
+    <div class="col-md-6 mb-4">
+      <div class="card h-100 shadow-sm">
+        <div class="card-body">
+          <h5 class="card-title"><%= post.title %></h5>
+          <p class="card-text"><%= post.content.substring(0, 100) %>...</p>
+          
+          <a href="/post/<%= post.id %>" class="btn btn-primary btn-sm">Read More</a>
+        </div>
+      </div>
+    </div>
+  <% }); %>
+</div>
+
+<%- include("partials/footer") %>

@@ -1,0 +1,20 @@
+<%- include("partials/header", { title: post.title }) %>
+
+<article class="mx-auto" style="max-width: 700px;">
+  <h1 class="mb-3"><%= post.title %></h1>
+  <p><%= post.content %></p>
+  
+  <div class="mt-4 d-flex justify-content-between">
+    <a href="/" class="btn btn-outline-secondary btn-sm">Back to Home</a>
+    
+    <div>
+      <a href="/edit/<%= post.id %>" class="btn btn-warning btn-sm me-2">Edit</a>
+
+      <form action="/delete/<%= post.id %>" method="POST" class="d-inline" onsubmit="return confirm('Delete this post?');">
+        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+      </form>
+    </div>
+  </div>
+</article>
+
+<%- include("partials/footer") %>

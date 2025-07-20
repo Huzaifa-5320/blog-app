@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= type.toUpperCase() %> List</title>
+  <link rel="stylesheet" href="/todo.css">
+</head>
+<body>
+  <h1><%= type.toUpperCase() %> TODO LIST</h1>
+
+  <div class="task-container">
+    <ul>
+      <% tasks.forEach(function(task) { %>
+        <li><%= task %></li>
+      <% }) %>
+    </ul>
+
+    <form action="/add" method="POST">
+      <input type="text" name="newTask" placeholder="Add a new task" required>
+      <input type="hidden" name="type" value="<%= type %>">
+      <button type="submit">Add</button>
+    </form>
+  </div>
+</body>
+</html>
